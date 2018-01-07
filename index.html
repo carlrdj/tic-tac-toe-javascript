@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tic Tac Toe</title>
+ 	<!-- Required meta tags -->
+ 	<link rel="icon" type="image/png" href="./tic-tac-toe.png" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-12 text-center mt-3 mb-3">
+				<h1>Tic Tac Toe</h1>
+			</div>
+
+			<div class="col-8 col-md-4">
+				<input id="namePlayer1" class="form-control form-control-lg name-player-1" type="text" placeholder="Player N° 01" value="Player N° 01">
+			</div>
+			<div id="selectSymbolX" onclick="selectSymbol(0)" class="col-4 col-md-2 text-center symbol-option symbol-active">
+				<i class="ion-android-close"></i>
+			</div>
+
+			<div class="col-8 col-md-4">
+				<input id="namePlayer2" class="form-control form-control-lg name-player-2" type="text" placeholder="Player N° 02" value="Player N° 02">
+			</div>
+			<div id="selectSymbolO" onclick="selectSymbol(1)" class="col-4 col-md-2 text-center symbol-option">
+				<i class="ion-android-radio-button-off"></i>
+			</div>
+
+
+
+			<div id="containerTicTacToe" class="col-12 container-tic-tac-toe p-4 mt-4">
+				<table id="lineSquare">
+					<tr>
+						<td id="tdBox0" onclick="checkBox(0)"><i id="box0" class=""></i></td>
+						<td id="tdBox1" onclick="checkBox(1)"><i id="box1" class=""></td>
+						<td id="tdBox2" onclick="checkBox(2)"><i id="box2" class=""></td>
+					</tr>
+					<tr>
+						<td id="tdBox3" onclick="checkBox(3)"><i id="box3" class=""></td>
+						<td id="tdBox4" onclick="checkBox(4)"><i id="box4" class=""></td>
+						<td id="tdBox5" onclick="checkBox(5)"><i id="box5" class=""></td>
+					</tr>
+					<tr>
+						<td id="tdBox6" onclick="checkBox(6)"><i id="box6" class=""></td>
+						<td id="tdBox7" onclick="checkBox(7)"><i id="box7" class=""></td>
+						<td id="tdBox8" onclick="checkBox(8)"><i id="box8" class=""></td>
+					</tr>
+				</table>
+
+
+
+				<div id="modal-container">
+				  <div class="modal-background">
+				    <div class="modal">
+				      <h2>GANADOR !!!</h2>
+				      <h2 id="won" class="winner"></h2>
+				      <svg class="modal-svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="none">
+								<rect x="0" y="0" fill="none" width="226" height="162" rx="3" ry="3"></rect>
+							</svg>
+				    </div>
+				  </div>
+				</div>
+
+			</div>
+
+
+			<div class="col-12 col-md-9 text-left mt-3">
+				  <button type="button" onclick="changeColor('red')" class="btn btn-red"> </button>
+				  <button type="button" onclick="changeColor('pink')" class="btn btn-pink"> </button>
+				  <button type="button" onclick="changeColor('purple')" class="btn btn-purple"> </button>
+				  <button type="button" onclick="changeColor('deep-purple')" class="btn btn-deep-purple"> </button>
+				  <button type="button" onclick="changeColor('indigo')" class="btn btn-indigo"> </button>
+				  <button type="button" onclick="changeColor('blue')" class="btn btn-blue"> </button>
+				  <button type="button" onclick="changeColor('light-blue')" class="btn btn-light-blue"> </button>
+				  <button type="button" onclick="changeColor('cyan')" class="btn btn-cyan"> </button>
+				  <button type="button" onclick="changeColor('teal')" class="btn btn-teal"> </button>
+				  <button type="button" onclick="changeColor('green')" class="btn btn-green"> </button>
+				  <button type="button" onclick="changeColor('light-green')" class="btn btn-light-green"> </button>
+				  <button type="button" onclick="changeColor('lime')" class="btn btn-lime"> </button>
+				  <button type="button" onclick="changeColor('yellow')" class="btn btn-yellow"> </button>
+				  <button type="button" onclick="changeColor('amber')" class="btn btn-amber"> </button>
+				  <button type="button" onclick="changeColor('orange')" class="btn btn-orange"> </button>
+				  <button type="button" onclick="changeColor('deep-orange')" class="btn btn-deep-orange"> </button>
+				  <button type="button" onclick="changeColor('brown')" class="btn btn-brown"> </button>
+				  <button type="button" onclick="changeColor('grey')" class="btn btn-grey"> </button>
+				  <button type="button" onclick="changeColor('blue-grey')" class="btn btn-blue-grey"> </button>
+				  <button type="button" onclick="changeColor('black')" class="btn btn-black"> </button>
+				<!--
+				  <button type="button" onclick="changeColor('#F44336', '#D50000')" class="btn btn-red"> </button>
+				  <button type="button" onclick="changeColor('#E91E63', '#C51162')" class="btn btn-pink"> </button>
+				  <button type="button" onclick="changeColor('#9C27B0', '#AA00FF')" class="btn btn-purple"> </button>
+				  <button type="button" onclick="changeColor('#673AB7', '#6200EA')" class="btn btn-deep-purple"> </button>
+				  <button type="button" onclick="changeColor('#3F51B5', '#304FFE')" class="btn btn-indigo"> </button>
+				  <button type="button" onclick="changeColor('#2196F3', '#2962FF')" class="btn btn-blue"> </button>
+				  <button type="button" onclick="changeColor('#03A9F4', '#0091EA')" class="btn btn-light-blue"> </button>
+				  <button type="button" onclick="changeColor('#00BCD4', '#00B8D4')" class="btn btn-cyan"> </button>
+				  <button type="button" onclick="changeColor('#009688', '#00BFA5')" class="btn btn-teal"> </button>
+				  <button type="button" onclick="changeColor('#4CAF50', '#00C853')" class="btn btn-green"> </button>
+				  <button type="button" onclick="changeColor('#8BC34A', '#64DD17')" class="btn btn-light-green"> </button>
+				  <button type="button" onclick="changeColor('#CDDC39', '#AEEA00')" class="btn btn-lime"> </button>
+				  <button type="button" onclick="changeColor('#FFEB3B', '#FFD600')" class="btn btn-yellow"> </button>
+				  <button type="button" onclick="changeColor('#FFC107', '#FFAB00')" class="btn btn-amber"> </button>
+				  <button type="button" onclick="changeColor('#FF9800', '#FF6D00')" class="btn btn-orange"> </button>
+				  <button type="button" onclick="changeColor('#FF5722', '#DD2C00')" class="btn btn-deep-orange"> </button>
+				  <button type="button" onclick="changeColor('#795548', '#3E2723')" class="btn btn-brown"> </button>
+				  <button type="button" onclick="changeColor('#9E9E9E', '#212121')" class="btn btn-grey"> </button>
+				  <button type="button" onclick="changeColor('#607D8B', '#263238')" class="btn btn-blue-grey"> </button>
+				  <button type="button" onclick="changeColor('#000000', '#FFFFFF')" class="btn btn-black"> </button>
+				-->
+			</div>
+
+			<div class="col-12 col-md-3 text-right mt-3">
+				<button class="btn btn-success" onclick="reset()">Resetear</button>
+			</div>
+
+			<div class="col-12 text-right m-3">
+				Developed by: <a href="mailto:carl.rdj@gmail.com">carl.rdj@gmail.com</a>
+			</div>
+		</div>
+	</div>
+	<!-- jQuery first, then Tether, then Bootstrap JS. -->
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="script.js"></script>
+
+	<script src="https://use.fontawesome.com/3b2971f6f9.js"></script>
+
+</body>
+</html>
